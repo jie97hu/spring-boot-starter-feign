@@ -1,7 +1,7 @@
-package com.muximu.springbootfeignstarter;
+package com.muximu.springboot.feign.starter;
 
-import com.muximu.springbootfeignstarter.annotation.FeignClient;
-import com.muximu.springbootfeignstarter.config.FeignClientConfiguration;
+import com.muximu.springboot.feign.starter.annotation.FeignClient;
+import com.muximu.springboot.feign.starter.config.FeignClientConfiguration;
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
@@ -49,16 +49,12 @@ public class FeignClientRegister implements ImportBeanDefinitionRegistrar, Resou
         Class clazz = ClassUtils.resolveClassName(metadata.getClassName(), null);
         FeignClientFactoryBean factoryBean = new FeignClientFactoryBean();
         factoryBean.setType(clazz);
-        factoryBean.setConfig(getConfiguration(metadata));
+        Map<String, Object> attributes = metadata.getAnnotationAttributes(FeignClient.class.getCanonicalName());
+        factoryBean.setConfig((Class<? extends FeignClientConfiguration>) attributes.get("configuration"));
         BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(clazz, factoryBean::getObject);
         beanDefinitionBuilder.setAutowireMode(AbstractBeanDefinition.AUTOWIRE_BY_TYPE);
         beanDefinitionBuilder.setLazyInit(true);
         return beanDefinitionBuilder.getBeanDefinition();
-    }
-
-    protected Class<? extends FeignClientConfiguration> getConfiguration(AnnotationMetadata metadata) {
-        Map<String, Object> attributes = metadata.getAnnotationAttributes(FeignClient.class.getCanonicalName());
-        return null;
     }
 
     protected void validateFeignClientAnnotation(AnnotationMetadata metadata) {

@@ -1,6 +1,6 @@
-package com.muximu.springbootfeignstarter;
+package com.muximu.springboot.feign.starter;
 
-import com.muximu.springbootfeignstarter.annotation.FeignClient;
+import com.muximu.springboot.feign.starter.annotation.FeignClient;
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.core.type.filter.AnnotationTypeFilter;

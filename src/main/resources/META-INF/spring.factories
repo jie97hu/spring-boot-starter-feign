@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.muximu.springboot.feign.starter.config.FeignClientAutoConfiguration

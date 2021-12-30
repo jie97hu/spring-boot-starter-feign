@@ -1,6 +1,6 @@
 package com.muximu.springboot.feign.starter.annotation;
 
-import com.muximu.springboot.feign.starter.FeignClientRegister;
+import com.muximu.springboot.feign.starter.core.FeignClientRegister;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.ElementType;

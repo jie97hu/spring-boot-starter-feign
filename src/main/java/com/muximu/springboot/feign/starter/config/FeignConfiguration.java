@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * feign的一些相关配置项,具体含义参考官方定义 https://github.com/OpenFeign/feign
  **/
-public interface FeignClientConfiguration {
+public interface FeignConfiguration {
 
     Client client();
 

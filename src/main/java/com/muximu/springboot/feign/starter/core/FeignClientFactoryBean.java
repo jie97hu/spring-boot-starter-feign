@@ -1,6 +1,5 @@
-package com.muximu.springboot.feign.starter;
+package com.muximu.springboot.feign.starter.core;
 
-import com.muximu.springboot.feign.starter.config.FeignClientConfiguration;
 import feign.Feign;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.FactoryBean;
@@ -11,7 +10,6 @@ public class FeignClientFactoryBean implements FactoryBean<Object>, ApplicationC
 
     private String url;
     private Class<?> type;
-    private Class<? extends FeignClientConfiguration> config;
     private ApplicationContext applicationContext;
 
     @Override
@@ -42,11 +40,5 @@ public class FeignClientFactoryBean implements FactoryBean<Object>, ApplicationC
         this.type = type;
     }
 
-    public Class<? extends FeignClientConfiguration> getConfig() {
-        return config;
-    }
 
-    public void setConfig(Class<? extends FeignClientConfiguration> config) {
-        this.config = config;
-    }
 }

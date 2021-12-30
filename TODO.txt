@@ -1,0 +1,4 @@
+fallback  兜底
+properties 自动配置
+
+重要的两个机制，重试和兜底

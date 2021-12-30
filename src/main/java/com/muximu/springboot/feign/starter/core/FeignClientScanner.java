@@ -1,4 +1,4 @@
-package com.muximu.springboot.feign.starter;
+package com.muximu.springboot.feign.starter.core;
 
 import com.muximu.springboot.feign.starter.annotation.FeignClient;
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;

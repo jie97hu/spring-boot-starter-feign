@@ -1,7 +1,6 @@
-package com.muximu.springboot.feign.starter;
+package com.muximu.springboot.feign.starter.core;
 
 import com.muximu.springboot.feign.starter.annotation.FeignClient;
-import com.muximu.springboot.feign.starter.config.FeignClientConfiguration;
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
@@ -50,7 +49,6 @@ public class FeignClientRegister implements ImportBeanDefinitionRegistrar, Resou
         FeignClientFactoryBean factoryBean = new FeignClientFactoryBean();
         factoryBean.setType(clazz);
         Map<String, Object> attributes = metadata.getAnnotationAttributes(FeignClient.class.getCanonicalName());
-        factoryBean.setConfig((Class<? extends FeignClientConfiguration>) attributes.get("configuration"));
         BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(clazz, factoryBean::getObject);
         beanDefinitionBuilder.setAutowireMode(AbstractBeanDefinition.AUTOWIRE_BY_TYPE);
         beanDefinitionBuilder.setLazyInit(true);

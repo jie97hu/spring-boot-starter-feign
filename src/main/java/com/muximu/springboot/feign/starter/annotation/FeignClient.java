@@ -1,7 +1,6 @@
 package com.muximu.springboot.feign.starter.annotation;
 
-import com.muximu.springboot.feign.starter.config.FeignClientConfiguration;
-import com.muximu.springboot.feign.starter.config.FeignClientAutoConfiguration;
+import com.muximu.springboot.feign.starter.config.FeignConfiguration;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -14,6 +13,5 @@ public @interface FeignClient {
 
     String url();
 
-    Class<? extends FeignClientConfiguration> configuration() default FeignClientAutoConfiguration.class;
-
+    Class<? extends FeignConfiguration> configuration();
 }

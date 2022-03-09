@@ -1,46 +1,51 @@
 package com.muximu.springboot.feign.starter.config;
 
+import com.muximu.springboot.feign.starter.FeignProperties;
 import feign.Client;
 import feign.Feign;
-import feign.RequestInterceptor;
 import feign.Retryer;
 import feign.codec.Decoder;
 import feign.codec.Encoder;
+import feign.jackson.JacksonDecoder;
+import feign.jackson.JacksonEncoder;
+import feign.okhttp.OkHttpClient;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.List;
 
 /**
  * @author hujie
  * @date 2021/12/28 9:51
  */
+
 @Configuration
 @ConditionalOnClass(Feign.class)
-public class FeignAutoConfiguration implements FeignConfiguration {
+@EnableConfigurationProperties(value = FeignProperties.class)
+public class FeignAutoConfiguration {
 
-    @Override
+    @Bean(name = "defaultFeignClient")
     public Client client() {
-        return null;
+        return new OkHttpClient();
     }
 
-    @Override
+    @Bean(name = "defaultFeignDecoder")
     public Decoder decoder() {
-        return null;
+        return new JacksonDecoder();
     }
 
-    @Override
+    @Bean(name = "defaultFeignEncoder")
     public Encoder encoder() {
-        return null;
+        return new JacksonEncoder();
     }
 
-    @Override
+    @Bean(name = "defaultFeignRetryer")
     public Retryer retryer() {
-        return null;
+        return Retryer.NEVER_RETRY;
     }
 
-    @Override
-    public List<RequestInterceptor> requestInterceptor() {
-        return null;
+    public static void main(String[] args) {
+        Feign.builder()
     }
+
 }

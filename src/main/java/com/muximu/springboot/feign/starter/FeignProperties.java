@@ -1,13 +1,35 @@
 package com.muximu.springboot.feign.starter;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
-@EnableConfigurationProperties(value = FeignProperties.class)
 @ConfigurationProperties(prefix = "feign", ignoreInvalidFields = true)
 public class FeignProperties {
-    /**
-     * 端口
-     */
-    private Integer port = 80;
+
+    private Boolean enableHystrix;
+    private Boolean enableSentinel;
+    private Boolean enableRibbon;
+
+    public Boolean getEnableHystrix() {
+        return enableHystrix;
+    }
+
+    public void setEnableHystrix(Boolean enableHystrix) {
+        this.enableHystrix = enableHystrix;
+    }
+
+    public Boolean getEnableSentinel() {
+        return enableSentinel;
+    }
+
+    public void setEnableSentinel(Boolean enableSentinel) {
+        this.enableSentinel = enableSentinel;
+    }
+
+    public Boolean getEnableRibbon() {
+        return enableRibbon;
+    }
+
+    public void setEnableRibbon(Boolean enableRibbon) {
+        this.enableRibbon = enableRibbon;
+    }
 }

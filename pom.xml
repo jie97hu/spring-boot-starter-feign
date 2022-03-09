@@ -13,54 +13,54 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <feign.version>9.7.0</feign.version>
+        <springboot.version>2.0.0.RELEASE</springboot.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
-            <version>2.0.0.RELEASE</version>
+            <version>${springboot.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>io.GitHub.openfeign</groupId>
+            <groupId>io.github.openfeign</groupId>
             <artifactId>feign-core</artifactId>
             <version>${feign.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.GitHub.openfeign</groupId>
+            <groupId>io.github.openfeign</groupId>
             <artifactId>feign-okhttp</artifactId>
-            <version>9.5.1</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>okhttp</artifactId>
-                    <groupId>com.squareup.okhttp3</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>feign-core</artifactId>
-                    <groupId>io.github.openfeign</groupId>
-                </exclusion>
-            </exclusions>
+            <version>${feign.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.GitHub.openfeign</groupId>
+            <groupId>io.github.openfeign</groupId>
             <artifactId>feign-jackson</artifactId>
             <version>${feign.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>jackson-databind</artifactId>
-                    <groupId>com.fasterxml.jackson.core</groupId>
-                </exclusion>
-            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-hystrix</artifactId>
+            <version>${feign.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-ribbon</artifactId>
+            <version>${feign.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-core</artifactId>
+            <version>1.8.3</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>2.0.0.RELEASE</version>
+            <version>${springboot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
-            <version>2.0.0.RELEASE</version>
+            <version>${springboot.version}</version>
             <optional>true</optional>
         </dependency>
     </dependencies>

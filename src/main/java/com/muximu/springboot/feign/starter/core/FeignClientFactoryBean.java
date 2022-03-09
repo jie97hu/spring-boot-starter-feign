@@ -28,7 +28,6 @@ public class FeignClientFactoryBean implements FactoryBean<Object>, ApplicationC
     }
 
     private <T> T configureFeign(Class<T> type) {
-
         return Feign.builder().target(type, url);
     }
 

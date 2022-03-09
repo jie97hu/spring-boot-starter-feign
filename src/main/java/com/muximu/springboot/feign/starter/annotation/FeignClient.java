@@ -1,7 +1,5 @@
 package com.muximu.springboot.feign.starter.annotation;
 
-import com.muximu.springboot.feign.starter.config.FeignConfiguration;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -11,7 +9,12 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface FeignClient {
 
-    String url();
+    String url() default "";
 
-    Class<? extends FeignConfiguration> configuration();
+    String server() default "";
+
+    Class<?> configuration() default void.class;
+
+    Class<?> fallBack() default void.class;
+
 }
